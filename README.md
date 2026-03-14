@@ -1,4 +1,4 @@
-# CPRFs for Inner-Product Membership Predicates from Isogenies
+# CPRF for inner-product membership predicates from isogenies
 
 This code provides an implementation in SageMath/Python of a constrained pseudorandom function (CPRF) for inner-product membership predicates based on isogeny-based cryptography.
 It accompanies the paper "Compressed Post-Quantum Silent OT from Isogenies" by Pouria Fallahpour, Arthur Herlédan Le Merdy, and Mahshid Riahinia, where the CPRF is described and proved.
@@ -32,7 +32,7 @@ A minimal example with constrained key, such as
 (EGA,msk) = KeyGen(lvl,n,timing=True);
 z = random_binary_vector(n);
 C = (S,z);
-r,ck = Constrain(EGA,msk,C,timing=True);
+ck = Constrain(EGA,msk,C,timing=True);
 x = random_x_in_S(n,z,S);
 eval_x = Eval(EGA,msk,x,timing=True);
 ceval_x = CEval(EGA,ck,x,timing=True);
