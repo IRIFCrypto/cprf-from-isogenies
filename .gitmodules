@@ -1,3 +1,3 @@
-[submodule "qt-pegasis"]
-	path = qt-pegasis
-	url = https://github.com/KULeuven-COSIC/qt-pegasis
+[submodule "qt-pegasis-Fp"]
+    path = qt-pegasis-Fp
+    url = https://github.com/Pierrick-Dartois/qt-pegasis-Fp
