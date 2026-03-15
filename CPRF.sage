@@ -329,7 +329,7 @@ def CPRF_test(N,M,lvl,n,constrained=False):
     T_Eval = [0,0,0];
     T_CEval = [0,0,0];
     
-    for i in range(N):
+    for j in range(N):
         (EGA,msk),T = KeyGen(lvl,n,return_timing=True)
         T_KeyGen[0] += T[0];
         T_KeyGen[1] += T[1];
