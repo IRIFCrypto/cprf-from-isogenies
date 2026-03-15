@@ -14,7 +14,7 @@ Computes a hash from the concatenation of a binary vector x
 and the j-invariant of an elliptic curve using SHA3-256.
 In:
     a binary vector x,
-    an elliptic curve E, assumed to be defined over the based field
+    an elliptic curve E, assumed to be defined over the base field
 Out:
     a hexadecimal string representation of the SHA3-256 hash of x||j(E)
 """
@@ -58,7 +58,7 @@ Out: the product of fractional O-ideals (k[i]^x[i])_{i < len(x)}
 """
 def vector_product(O,k,x):
     #We reduce the ideal, every m times
-    m = 15; #m=15 seems to be a sweet spot in term of efficiency
+    m = 15; #m=15 seems to be a sweet spot in terms of efficiency
 
     assert len(x) == len(k), "The lengths of the inputs do not match";
     
@@ -73,16 +73,6 @@ def vector_product(O,k,x):
     return I;
 
 """
-Computes a random binary vector of length n
-In:
-    a positive integer n
-Out:
-    a random binary vector of length n
-"""
-def random_z(n):
-    return [ randint(0,1) for i in range(n)];
-
-"""
 Generates a master secret key for the CPRF using binary vectors of length n
 and relying on the qt-Pegasis framework of level lvl
 the corresponding EGA is also returned.
@@ -94,7 +84,7 @@ In:
 Out:
    an efficient group action EGA of level lvl computed by the PEGASIS algorithm, including the public curve t0,
    a master secret key (t,k) where t is an oriented elliptic curve and k is a list of n fractional ideals,
-   when timing = True, the algorithm print the runtime with details on the different costs,
+   when timing = True, the algorithm prints the runtime with details on the different costs,
    when return_timing = True, it also returns these timings.
 """
 def KeyGen(lvl,n,timing=False,return_timing=False):
@@ -137,7 +127,7 @@ In:
 Out:
     the evaluation of the CPRF on the input x, 
     given as a hexadecimal string representation of a SHA3-256 hash.
-    when timing = True, the algorithm print the runtime with details on the different costs,
+    when timing = True, the algorithm prints the runtime with details on the different costs,
     when return_timing = True, it also returns these timings.
 """
 def Eval(EGA,msk,x,timing=False,return_timing=False): 
@@ -171,14 +161,14 @@ In:
     an efficient group action EGA
     a master secret key msk
     a circuit C = (S,z) 
-    where z is binary vector of length n 
+    where z is a binary vector of length n 
     and S is a subset of [n] 
 Out:
     a constrained key ck = (ts,alpha,C)
-    where ts is is list of elliptic curves,
-    alpha is a list ideals (as returned by EGA.sample_ideal()),
+    where ts is list of elliptic curves,
+    alpha is a list of ideals (as returned by EGA.sample_ideal()),
     and C is the input circuit,
-    when timing = True, the algorithm print the runtime with details on the different costs,
+    when timing = True, the algorithm prints the runtime with details on the different costs,
     when return_timing = True, it also returns these timings.
 """
 def Constrain(EGA,msk,C,timing = False,return_timing=False):
@@ -253,7 +243,7 @@ In:
 Out:
     the evaluation of the CPRF on the input x, 
     given as a hexadecimal string representation of a SHA3-256 hash.
-    when timing = True, the algorithm print the runtime with details on the different costs,
+    when timing = True, the algorithm prints the runtime with details on the different costs,
     when return_timing = True, it also returns these timings.
     If x does not verify the inner-product membership property,
     it returns an error.
@@ -319,16 +309,16 @@ Out:
 """
 def random_x_in_S(n,z,S):
     v0 = [0 for i in range(n)];
-    x = random_z(n);
+    x = random_binary_vector(n);
     while inner_product(x,z) not in S or x == v0:
-        x = random_z(n);
+        x = random_binary_vector(n);
     return x;
 
 
 """
-Computes the average timings for N KeyGen/Constain evaluations and M Eval/CEval evaluations for each of them,
+Computes the average timings for N KeyGen/Constrain evaluations and M Eval/CEval evaluations for each of them,
 for the efficient group action of level lvl and for the CPRF using binary vectors of length n.
-The constain part is only executed when constrained = True.
+The constrain part is only executed when constrained = True.
 We use S = BIPSW(n);
 """
 def CPRF_test(N,M,lvl,n,constrained=False):
@@ -347,7 +337,7 @@ def CPRF_test(N,M,lvl,n,constrained=False):
         T_KeyGen[3] += T[3];
 
         
-        z = random_z(n);
+        z = random_binary_vector(n);
         C = (S,z)
 
         if constrained:
