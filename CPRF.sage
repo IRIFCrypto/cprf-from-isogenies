@@ -28,7 +28,7 @@ def hash_curve(x,E):
 """
 Computes the inner product <x,y> of two vectors x,y.
 In:
-    two binary vectors x,y of same length
+    two binary vectors x,y of the same length
 Out:
     the inner product <x,y>
 """
@@ -165,7 +165,7 @@ In:
     and S is a subset of [n] 
 Out:
     a constrained key ck = (ts,alpha,C)
-    where ts is list of elliptic curves,
+    where ts is a list of elliptic curves,
     alpha is a list of ideals (as returned by EGA.sample_ideal()),
     and C is the input circuit,
     when timing = True, the algorithm prints the runtime with details on the different costs,
@@ -278,11 +278,11 @@ def CEval(EGA,ck,x,timing=False,return_timing=False):
     return hash_curve(x,E)
 
 """
-Computes the subset BIPSW(S) of [n]
+Computes the subset BIPSW(n) of [n]
 In:
     a positive integer n
 Out:
-    the subset BIPSW(S) of [n] 
+    the subset BIPSW(n) of [n] 
 """
 def BIPSW(n):
     S = [k for k in range(n+1) if k%6 in [0,1,2]];
