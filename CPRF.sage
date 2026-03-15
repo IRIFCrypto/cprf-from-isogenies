@@ -374,20 +374,23 @@ def CPRF_test(N,M,lvl,n,constrained=False):
     print("Actions computed on average in  ", float(T_KeyGen[2]/N), "s");
     print("Total computation on average in  ", float(T_KeyGen[3]/N),"s",'\n');
 
-    print("For the Constrain algorithm:")
-    print("Ideals computed on average in  ", float(T_Constrain[0]/N), "s");
-    print("Actions computed on average in  ", float(T_Constrain[1]/N), "s");
-    print("Total computation on average in  ", float(T_Constrain[2]/N),"s",'\n');
+    if constrained:
+        print("For the Constrain algorithm:")
+        print("Ideals computed on average in  ", float(T_Constrain[0]/N), "s");
+        print("Actions computed on average in  ", float(T_Constrain[1]/N), "s");
+        print("Total computation on average in  ", float(T_Constrain[2]/N),"s",'\n');
 
     print("For the Evaluation algorithm:")
     print("Ideals computed on average in  ", float(T_Eval[0]/(M*N)), "s");
     print("Actions computed on average in  ", float(T_Eval[1]/(M*N)), "s");
     print("Total computation on average in  ", float(T_Eval[2]/(M*N)),"s",'\n');
 
-    print("For the CEvaluation algorithm:")
-    print("Ideals computed on average in  ", float(T_CEval[0]/(M*N)), "s");
-    print("Actions computed on average in  ", float(T_CEval[1]/(M*N)), "s");
-    print("Total computation on average in  ", float(T_CEval[2]/(M*N)),"s",'\n');
+    
+    if constrained:
+        print("For the CEvaluation algorithm:")
+        print("Ideals computed on average in  ", float(T_CEval[0]/(M*N)), "s");
+        print("Actions computed on average in  ", float(T_CEval[1]/(M*N)), "s");
+        print("Total computation on average in  ", float(T_CEval[2]/(M*N)),"s",'\n');
 
 lvl = 1000;
 n = 770;
