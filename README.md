@@ -16,7 +16,7 @@ From the directory containing CPRF.sage run the command
 load("CPRF.sage")
 ```
 
-to load all the necessary packages and set the parameters of the CPRF of security level 128, i.e. n=770, lvl=1000, S = BIPSW(n).
+to load all the necessary packages and set the parameters of the CPRF at security level 128, i.e. n=770, lvl=1000, S = BIPSW(n).
 
 One can then run a minimal example without constrained key, such as
 ```
@@ -47,7 +47,7 @@ n = 10;
 S = BIPSW(n);
 ```
 
-One can also run the test function
+There is a test function
 ```
 CPRF_test(N,M,lvl,n,constrained=True);
 ```
