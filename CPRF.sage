@@ -316,7 +316,7 @@ def random_x_in_S(n,z,S):
 
 
 """
-Computes the average timings for N KeyGen/Constrain evaluations and M Eval/CEval evaluations for each of them,
+Computes the average timings for N KeyGen/Constrain executions and M Eval/CEval evaluations for each of them,
 for the efficient group action of level lvl and for the CPRF using binary vectors of length n.
 The constrain part is only executed when constrained = True.
 We use S = BIPSW(n);
