@@ -90,7 +90,7 @@ In:
     an integer lvl among 500,1000,1500,2000,4000
     a positive integer n,
     a boolean timing,
-    a booleean return_timing,
+    a boolean return_timing,
 Out:
    an efficient group action EGA of level lvl computed by the PEGASIS algorithm, including the public curve t0,
    a master secret key (t,k) where t is an oriented elliptic curve and k is a list of n fractional ideals,
@@ -259,10 +259,6 @@ Out:
     it returns an error.
 """
 def CEval(EGA,ck,x,timing=False,return_timing=False):
-    # In:
-    #
-    #
-    # Out:
     time0 = time.time();
     ts,alpha,C = ck;
     S,z = C;
@@ -378,7 +374,7 @@ def CPRF_test(N,M,lvl,n,constrained=False):
                 
     print("For the parameters lvl =",lvl,"n =",n);
     if constrained:
-        print(M," evaluations of Eval and CEval have been runfor ", N, " different keys and constrained keys",'\n');
+        print(M," evaluations of Eval and CEval have been run for ", N, " different keys and constrained keys",'\n');
     else:
         print(M," evaluations of Eval have been run for ", N, " different keys",'\n');
               
