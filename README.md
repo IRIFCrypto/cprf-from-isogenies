@@ -11,7 +11,7 @@ The implementation of the qt\-Pegasis framework by Pierrick Dartois and Max Dupa
 
 ## How to run
 
-From the directory containing CPRF.sage run the command
+From the directory containing CPRF.sage run, in a Sage terminal, the command
 ```
 load("CPRF.sage")
 ```
