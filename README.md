@@ -52,7 +52,7 @@ One can also run the test function
 CPRF_test(N,M,lvl,n,constrained=True);
 ```
 to directly run M evaluations of Eval (and CEval when constrained is True) for N different keys (and constrained keys when constrained is True).
-It will print the average runtime for each algorithms and check their correctness.
+It will print the average runtime for each algorithm and check their correctness.
 
 ## SageMath/Python Version
 
@@ -60,8 +60,8 @@ The code has been developed using SageMath version 10.5 and Python 3.12.3.
 
 ## License
 
-This work is under a MIT license.
-It relies on code which is itself under a MIT license.
+This work is under an MIT license.
+It relies on code which is itself under an MIT license.
 Please refer to the LICENSE file for more information.
 
 ## Disclaimer
